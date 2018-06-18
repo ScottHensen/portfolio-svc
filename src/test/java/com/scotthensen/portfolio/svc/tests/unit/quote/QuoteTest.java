@@ -1,17 +1,18 @@
-package com.scotthensen.portfolio.entities;
+package com.scotthensen.portfolio.svc.tests.unit.quote;
 
 import java.math.BigDecimal;
 
 import org.assertj.core.api.Assertions;
 import org.junit.Test;
 
+import com.scotthensen.portfolio.svc.quote.Quote;
+
 public class QuoteTest {
 
 	@Test
-	public void shouldConstructQuote() {
+	public void givenValidArgs_whenAllArgConstructorCalled_thenQuoteIsConstructed() {
 	
-		// Given an id, symbol, bid and ask
-		Long	   teslaId  = 1L;
+		// Given valid arguments
 		String     teslaSym = "TSLA";
 		BigDecimal teslaBid = new BigDecimal("100.50");
 		BigDecimal teslaAsk = new BigDecimal("101.50");
@@ -33,10 +34,9 @@ public class QuoteTest {
 		
 		
 		// When AllArgsConstructor executes
-		Quote p = new Quote(teslaId, teslaSym, teslaBid, teslaAsk);
+		Quote p = new Quote(teslaSym, teslaBid, teslaAsk);
 		
 		// Then a quote with the given data is constructed
-		Assertions.assertThat(p.getId()).isEqualTo(teslaId);
 		Assertions.assertThat(p.getSymbol()).isEqualTo(teslaSym);
 		Assertions.assertThat(p.getBid()).isEqualByComparingTo(teslaBid);
 		Assertions.assertThat(p.getAsk()).isEqualTo(teslaAsk);
