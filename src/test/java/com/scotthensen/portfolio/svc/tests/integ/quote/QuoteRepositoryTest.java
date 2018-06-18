@@ -1,7 +1,5 @@
 package com.scotthensen.portfolio.svc.tests.integ.quote;
 
-import java.math.BigDecimal;
-
 import org.assertj.core.api.Assertions;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -11,6 +9,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import com.scotthensen.portfolio.svc.quote.Quote;
 import com.scotthensen.portfolio.svc.quote.QuoteRepository;
+import com.scotthensen.portfolio.svc.tests.helpers.QuoteHelper;
 
 @DataJpaTest
 @RunWith(SpringRunner.class)
@@ -22,14 +21,13 @@ public class QuoteRepositoryTest
 	@Test
 	public void givenValidQuote_whenSave_thenQuotePersists()
 	{
-		String teslaSym     = "TSLA";
-		BigDecimal teslaBid = new BigDecimal("100.50");
-		BigDecimal teslaAsk = new BigDecimal("101.50");
+		QuoteHelper helper = new QuoteHelper();
+		Quote q1 = helper.getQuote1();
 		
-		Quote q = repository.save(new Quote(teslaSym, teslaBid, teslaAsk));
+		Quote q = repository.save(q1);
 
-		Assertions.assertThat(q.getSymbol()).isEqualTo(teslaSym);
-		Assertions.assertThat(q.getAsk()).isEqualTo(teslaAsk);
-		Assertions.assertThat(q.getBid()).isEqualTo(teslaBid);
+		Assertions.assertThat(q.getSymbol()).isEqualTo(q1.getSymbol());
+		Assertions.assertThat(q.getAsk()).isEqualTo(q1.getAsk());
+		Assertions.assertThat(q.getBid()).isEqualTo(q1.getBid());
 	}
 }

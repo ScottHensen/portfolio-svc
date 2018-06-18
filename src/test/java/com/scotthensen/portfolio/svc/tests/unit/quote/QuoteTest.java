@@ -34,7 +34,7 @@ public class QuoteTest {
 		
 		
 		// When AllArgsConstructor executes
-		Quote p = new Quote(teslaSym, teslaBid, teslaAsk);
+		Quote p = new Quote(null, teslaSym, teslaBid, teslaAsk);
 		
 		// Then a quote with the given data is constructed
 		Assertions.assertThat(p.getSymbol()).isEqualTo(teslaSym);
