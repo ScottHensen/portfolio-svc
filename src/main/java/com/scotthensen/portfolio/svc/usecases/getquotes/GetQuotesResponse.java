@@ -2,6 +2,10 @@ package com.scotthensen.portfolio.svc.usecases.getquotes;
 
 import java.util.List;
 
+import org.springframework.web.client.HttpClientErrorException;
+
+import com.scotthensen.portfolio.svc.quote.Quote;
+
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.AllArgsConstructor;
@@ -11,5 +15,6 @@ import lombok.AllArgsConstructor;
 @AllArgsConstructor
 public class GetQuotesResponse 
 {
-	private List<StockQuote> quotes; 
+	private List<Quote> quotes; 
+	private HttpClientErrorException httpException;
 }

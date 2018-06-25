@@ -3,6 +3,8 @@
 !gradle/wrapper/gradle-wrapper.jar
 /bin/
 /doc/~*
+/scraps/
+
 
 ### STS ###
 .apt_generated

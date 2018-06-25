@@ -1,7 +1,7 @@
 package com.scotthensen.portfolio.svc.tests.integ
 
 import com.scotthensen.portfolio.svc.quote.Quote
-import com.scotthensen.portfolio.svc.usecases.getquotes.StockQuote
+import com.scotthensen.portfolio.svc.usecases.getquotes.QuoteFromIexDetails
 
 import org.springframework.web.client.RestTemplate
 import spock.lang.Narrative
@@ -25,7 +25,7 @@ class IexQuoteServiceSpec extends Specification {
 		String url = "https://api.iextrading.com/1.0/stock/tsla/quote"
 		
 		when: "when a GET request is made to IEX"
-		StockQuote quote = restTemplate.getForObject(url, StockQuote.class)
+		QuoteFromIexDetails quote = restTemplate.getForObject(url, QuoteFromIexDetails.class)
 		
 		then: "then a valid response is returned"
 		quote.symbol == 'TSLA'

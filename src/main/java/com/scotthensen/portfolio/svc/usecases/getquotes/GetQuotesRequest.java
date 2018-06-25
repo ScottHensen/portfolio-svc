@@ -10,25 +10,9 @@ import lombok.NoArgsConstructor;
 
 @Component
 @Data
-@NoArgsConstructor
+@NoArgsConstructor //(access = AccessLevel.NONE)
 @AllArgsConstructor
-public class GetQuotesRequest {
-
-//	private final List<String> quotesArg;
-//	private final String quoteArg;
-//	
-//	@Inject 
-//	public QuotesRequestModel(List<String> quotesArg) {
-//		Assert.notEmpty(quotesArg, "QuotesArg must not be empty"");
-//		this.quotesArg = quotesArg;
-//	}
-	
-	public GetQuotesRequest(String symbol) {
-		this.symbol = symbol;
-	}
-//	public GetQuotesRequest(List<String> symbols) {
-//		this.symbols = symbols;
-//	}
-	private String symbol;
+public class GetQuotesRequest 
+{
 	private List<String> symbols; 
 }
